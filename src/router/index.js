@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import ViewHome from "@/views/ViewHome.vue"
 import ViewMovieDetails from "@/views/ViewMovieDetails.vue"
+import ViewNotFound from "@/views/ViewNotFound.vue"
+
 const routes = [
   {
     path: "/",
@@ -19,6 +21,15 @@ const routes = [
     meta: {
       enterClass: "animate__animated animate__fadeInRight",
       leaveClass: "animate__animated animate__fadeOutRight",
+    },
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: ViewNotFound,
+    meta: {
+      enterClass: "animate__animated animate__fadeInLeft",
+      leaveClass: "animate__animated animate__fadeOutLeft",
     },
   },
 ];
