@@ -9,32 +9,31 @@ const props = defineProps({
   movie: "",
 });
 
-const title = props.movie.Title.substr(0, 15) + "...";
+const title = props.movie.Title.substr(0, 20) + "...";
 
-// const toggleFav = (id, e) => {
-//   const cek = store.favMovies.filter((movie) => movie.imdbID == id);
-//   if (cek.length > 0) {
-//     store.removeFromFavorite(id);
-//     e.target.classList.remove("text-red-600");
-//   } else {
-//     store.addToFavorite(id);
-//     e.target.classList.add("text-red-600");
-//   }
-// };
+const toggleFav = (id, e) => {
+  const favList = store.favMovies.filter((movie) => movie.imdbID == id);
+  if (favList.length > 0) {
+    store.removeFromFavorite(id);
+  } else {
+    store.addToFavorite(id);
+  }
+};
 
-// const isFav = (imdbID) => {
-//   if (store.favMovies) {
-//     const result = store.favMovies.filter((movie) => movie.imdbID == imdbID);
+const isFav = (imdbID) => {
+  if (store.favMovies) {
+    const result = store.favMovies.filter((movie) => movie.imdbID == imdbID);
 
-//     return result.length ? true : false;
-//   }
-// };
-// { name: 'Details', params: { id: movie.imdbID } }
+    return result.length ? true : false;
+  }
+};
 </script>
     
-    <template>
-  <div class="w-full h-48 rounded-md overflow-hidden bg-gray-50 lg:h-64">
-    <RouterLink :to="'/'" class="w-full h-full">
+<template>
+  <div
+    class="w-full h-48 rounded-md overflow-hidden bg-gray-50 lg:h-64 relative"
+  >
+    <RouterLink :to="`/Details/${movie.imdbID}`" class="w-full h-full">
       <div v-if="movie.Poster != 'N/A'" class="w-full h-full">
         <img
           :src="movie.Poster"
@@ -50,24 +49,41 @@ const title = props.movie.Title.substr(0, 15) + "...";
         />
       </div>
     </RouterLink>
-  </div>
-
-  <div class="mt-4 w-full">
-    <div class="text-red-200 flex items-center justify-between">
-      <RouterLink :to="'/'">
-        <h3 class="font-medium text-md tracking-wide" :title="movie.Title">
-          {{ title }}
-        </h3>
-      </RouterLink>
-      <!-- @click="toggleFav(movie.imdbID, $event)" -->
-      <button class="cursor-pointer">
-        <!-- :class="{ 'text-red-600': isFav(movie.imdbID) }" -->
-        <HeartIcon />
-      </button>
-    </div>
-    <div class="text-gray-200 flex mt-3 items-center font-medium text-sm">
-      <CalendarIcon />
-      {{ movie.Year }}
+    <div
+      class="
+        mt-4
+        w-full
+        absolute
+        left-0
+        bottom-0
+        p-2
+        bg-white/10
+        backdrop-blur-md
+      "
+    >
+      <div class="text-red-400 flex items-center justify-between">
+        <RouterLink :to="`/Details/${movie.imdbID}`">
+          <h3
+            class="font-medium text-md tracking-wide text-amber-300"
+            :title="movie.Title"
+          >
+            {{ title }}
+          </h3>
+        </RouterLink>
+        <!--  -->
+      </div>
+      <div class="flex justify-between items-center mt-5">
+        <div class="text-gray-300 flex items-center font-medium text-sm">
+          <CalendarIcon />
+          {{ movie.Year }}
+        </div>
+        <button
+          @click="toggleFav(movie.imdbID, $event)"
+          class="cursor-pointer text-white"
+        >
+          <HeartIcon :isFav="isFav(movie.imdbID)" />
+        </button>
+      </div>
     </div>
   </div>
 </template>

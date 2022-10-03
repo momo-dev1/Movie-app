@@ -10,7 +10,7 @@ export const useFavoritStore = defineStore("favorit", {
     actions: {
         addToFavorite(id) {
             axios
-                .get(`${ process.env.VUE_APP_API_URL }?apikey=${ process.env.VUE_APP_API_KEY }&i=${ id }`)
+                .get(`${ import.meta.env.VITE_API_URL }?apikey=${ import.meta.env.VITE_API_KEY }&i=${ id }`)
                 .then(res => {
                     const { data } = res;
                     const movie = {

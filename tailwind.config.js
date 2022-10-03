@@ -7,7 +7,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        eerieBlack: "#201C12",
+        eerieBlack: "#121620",
+        blackCoral: "#5f6471",
+        darkGunmetal: "#1c212e",
       },
       fontFamily: {
         sans: ['Poppins', "sans-serif"]
