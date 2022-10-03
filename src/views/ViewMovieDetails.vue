@@ -28,24 +28,22 @@ onMounted(() => {
 });
 
 const toggleFav = (id, e) => {
-  const cek = favStore.favMovies.filter((movie) => movie.imdbID == id);
-  if (cek.length > 0) {
+  const favList = favStore.favMovies.filter((movie) => movie.imdbID == id);
+  if (favList.length > 0) {
     favStore.removeFromFav(id);
-    e.target.classList.remove("text-red-600");
   } else {
     favStore.addToFavorit(id);
-    e.target.classList.add("text-red-600");
   }
 };
 
 const handleTextFav = (imdbID) => {
-  const cek = favStore.favMovies.filter((movie) => movie.imdbID == imdbID);
+  const favList = favStore.favMovies.filter((movie) => movie.imdbID == imdbID);
   return cek.length ? "Remove from Favorite" : "Add to Favorite";
 };
 
 const getClass = (imdbID) => {
-  const cek = favStore.favMovies.filter((movie) => movie.imdbID == imdbID);
-  return cek.length ? "text-red-600" : "text-gray-300";
+  const favList = favStore.favMovies.filter((movie) => movie.imdbID == imdbID);
+  return favList.length ? "text-red-600" : "text-gray-300";
 };
 </script>
     
