@@ -1,9 +1,9 @@
 <script setup>
 import { onMounted, ref } from "@vue/runtime-core";
-import Movies from "../components/Movies.vue";
-import Search from "../components/Search.vue";
-import IsLoading from "../components/IsLoading.vue";
-import { useMoviesStore } from "../store/movies";
+import Movies from "@/components/Movies.vue";
+import Search from "@/components/Search.vue";
+import Loading from "@/components/Loading.vue";
+import { useMoviesStore } from "@/store/movies";
 const store = useMoviesStore();
 
 const keyword = ref(
