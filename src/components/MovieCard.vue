@@ -1,8 +1,8 @@
 <script setup>
 import { ref } from "@vue/reactivity";
-import CalendarIcon from "./icons/CalendarIcon.vue";
-import HeartIcon from "./icons/HeartIcon.vue";
-import { useFavoritStore } from "@/store/favorit";
+import CalendarIcon from "@/assets/icons/CalendarIcon.vue";
+import HeartIcon from "@/assets/icons/HeartIcon.vue";
+import { useFavoritStore } from "@/store/favorite";
 const store = useFavoritStore();
 
 const props = defineProps({
@@ -29,14 +29,12 @@ const title = props.movie.Title.substr(0, 15) + "...";
 //     return result.length ? true : false;
 //   }
 // };
+// { name: 'Details', params: { id: movie.imdbID } }
 </script>
     
     <template>
   <div class="w-full h-48 rounded-md overflow-hidden bg-gray-50 lg:h-64">
-    <RouterLink
-      :to="{ name: 'Details', params: { id: movie.imdbID } }"
-      class="w-full h-full"
-    >
+    <RouterLink :to="'/'" class="w-full h-full">
       <div v-if="movie.Poster != 'N/A'" class="w-full h-full">
         <img
           :src="movie.Poster"
@@ -56,7 +54,7 @@ const title = props.movie.Title.substr(0, 15) + "...";
 
   <div class="mt-4 w-full">
     <div class="text-red-200 flex items-center justify-between">
-      <RouterLink :to="{ name: 'Details', params: { id: movie.imdbID } }">
+      <RouterLink :to="'/'">
         <h3 class="font-medium text-md tracking-wide" :title="movie.Title">
           {{ title }}
         </h3>

@@ -21,7 +21,7 @@ export const useMoviesStore = defineStore("movies", {
             }
 
             try {
-                const { data } = await axios.get(`${ process.env.VUE_APP_API_URL }?apikey=${ process.env.VUE_APP_API_KEY }&s=${ keyword }`);
+                const { data } = await axios.get(`${ import.meta.env.VITE_API_URL }?apikey=${ import.meta.env.VITE_API_KEY }&s=${ keyword }`);
                 if (data.Response == "False") {
                     throw new Error(data.Error);
                 }

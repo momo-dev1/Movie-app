@@ -1,5 +1,5 @@
 <script setup>
-import Movie from "./Movie.vue";
+import MovieCard from "./MovieCard.vue";
 const props = defineProps({
   movies: Array,
 });
