@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, ref } from "@vue/runtime-core";
-import Movies from "@/components/Movies.vue";
+import MoviesList from "@/components/MoviesList.vue";
 import Search from "@/components/Search.vue";
 import Loading from "@/components/Loading.vue";
 import { useMoviesStore } from "@/store/movies";
@@ -22,7 +22,7 @@ onMounted(() => {
     <Search />
 
     <article ref="scrollComponent">
-      <Movies :movies="store.movies" />
+      <MoviesList :movies="store.movies" />
     </article>
     <IsLoading v-if="store.isLoading" />
   </main>

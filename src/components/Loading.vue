@@ -1,5 +1,5 @@
 <script setup>
-import { useMoviesStore } from "../store/movies";
+import { useMoviesStore } from "@/store/movies";
 const store = useMoviesStore();
 </script>
     <template>
