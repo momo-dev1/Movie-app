@@ -1,8 +1,6 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 
-
-
 export const useFavoritStore = defineStore("favorit", {
     state: () => {
         return {
@@ -12,7 +10,7 @@ export const useFavoritStore = defineStore("favorit", {
     actions: {
         addToFavorite(id) {
             axios
-                .get(`${ API_URL }?apikey=${ API_KEY }&i=${ id }`)
+                .get(`${ process.env.VUE_APP_API_URL }?apikey=${ process.env.VUE_APP_API_KEY }&i=${ id }`)
                 .then(res => {
                     const { data } = res;
                     const movie = {
