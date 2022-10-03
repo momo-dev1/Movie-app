@@ -1,5 +1,4 @@
 <script setup>
-import Header from "@/components/Header.vue";
 import MoviesList from "@/components/MoviesList.vue";
 import IsLoading from "@/components/IsLoading.vue";
 import { watchEffect, ref, onMounted } from "@vue/runtime-core";
@@ -9,7 +8,7 @@ import HeartIcon from "@/components/icons/HeartIcon.vue";
 import LocationIcon from "@/components/icons/LocationIcon.vue";
 import StarIcon from "@/components/icons/StarIcon.vue";
 import { useMoviesStore } from "@/store/movies";
-import { useFavoritStore } from "@/store/favorit";
+import { useFavoritStore } from "@/store/favorite";
 const favStore = useFavoritStore();
 const moviesStore = useMoviesStore();
 
@@ -38,12 +37,15 @@ const toggleFav = (id, e) => {
 
 const handleTextFav = (imdbID) => {
   const favList = favStore.favMovies.filter((movie) => movie.imdbID == imdbID);
-  return cek.length ? "Remove from Favorite" : "Add to Favorite";
+  return favList.length ? "Remove from Favorite" : "Add to Favorite";
 };
 
-const getClass = (imdbID) => {
-  const favList = favStore.favMovies.filter((movie) => movie.imdbID == imdbID);
-  return favList.length ? "text-red-600" : "text-gray-300";
+const isFav = (imdbID) => {
+  if (store.favMovies) {
+    const result = store.favMovies.filter((movie) => movie.imdbID == imdbID);
+
+    return result.length ? true : false;
+  }
 };
 </script>
     
@@ -135,9 +137,8 @@ const getClass = (imdbID) => {
         <button
           @click="toggleFav(moviesStore.movie.imdbID, $event)"
           class="flex items-center mt-8 cursor-pointer"
-          :class="getClass(moviesStore.movie.imdbID)"
         >
-          <HeartIcon />
+          <HeartIcon :isFav="isFav" />
 
           <span class="text-sm tracking-wide">
             {{ handleTextFav(moviesStore.movie.imdbID) }}
