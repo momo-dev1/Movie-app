@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "@/views/Home.vue"
+import ViewHome from "@/views/ViewHome.vue"
 const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home,
+    component: ViewHome,
     meta: {
       enterClass: "animate__animated animate__fadeInLeft",
       leaveClass: "animate__animated animate__fadeOutLeft",
