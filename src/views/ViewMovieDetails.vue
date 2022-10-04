@@ -58,7 +58,7 @@ const isFav = (imdbID) => {
       >
         <img
           :src="moviesStore.movie.Poster"
-          class="w-full h-full object-cover"
+          class="w-full h-full object-cover object-top"
           :alt="moviesStore.movie.Title"
         />
       </div>
@@ -140,7 +140,7 @@ const isFav = (imdbID) => {
         >
           <HeartIcon :isFav="isFav" />
 
-          <span class="text-sm tracking-wide">
+          <span class="text-sm tracking-wide text-white">
             {{ handleTextFav(moviesStore.movie.imdbID) }}
           </span>
         </button>
