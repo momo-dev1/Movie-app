@@ -1,12 +1,12 @@
 <script setup>
 import MoviesList from "@/components/MoviesList.vue";
-import IsLoading from "@/components/IsLoading.vue";
+import Loading from "@/components/Loading.vue";
 import { watchEffect, ref, onMounted } from "@vue/runtime-core";
-import CalendarIcon from "@/components/icons/CalendarIcon.vue";
-import TimeIcon from "@/components/icons/TimeIcon.vue";
-import HeartIcon from "@/components/icons/HeartIcon.vue";
-import LocationIcon from "@/components/icons/LocationIcon.vue";
-import StarIcon from "@/components/icons/StarIcon.vue";
+import CalendarIcon from "@/assets/icons/CalendarIcon.vue";
+import TimeIcon from "@/assets/icons/TimeIcon.vue";
+import HeartIcon from "@/assets/icons/HeartIcon.vue";
+import LocationIcon from "@/assets/icons/LocationIcon.vue";
+import StarIcon from "@/assets/icons/StarIcon.vue";
 import { useMoviesStore } from "@/store/movies";
 import { useFavoritStore } from "@/store/favorite";
 const favStore = useFavoritStore();
@@ -51,7 +51,7 @@ const isFav = (imdbID) => {
     
 <template>
   <main>
-    <IsLoading v-if="moviesStore.isLoading" />
+    <Loading v-if="moviesStore.isLoading" />
     <article class="lg:flex lg:gap-5 lg:justify-between lg:items-center">
       <div
         class="w-full h-64 rounded-md overflow-hidden md:h-80 lg:w-6/12 lg:h-96"
