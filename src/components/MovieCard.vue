@@ -33,7 +33,7 @@ const isFav = (imdbID) => {
   <div
     class="w-full h-48 rounded-md overflow-hidden bg-gray-50 lg:h-64 relative"
   >
-    <RouterLink :to="`/Details/${movie.imdbID}`" class="w-full h-full">
+    <RouterLink :to="`/detail/${movie.imdbID}`" class="w-full h-full">
       <div v-if="movie.Poster != 'N/A'" class="w-full h-full">
         <img
           :src="movie.Poster"
