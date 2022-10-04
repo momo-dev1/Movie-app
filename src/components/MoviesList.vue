@@ -7,13 +7,19 @@ const props = defineProps({
     
     <template>
   <div
-    class="mt-7 w-full flex flex-wrap justify-between gap-5 md:gap-8 lg:gap-5"
+    class="
+      mt-7
+      w-full
+      grid grid-cols-2
+      md:grid-cols-3
+      lg:grid-cols-4
+      xl:grid-cols-5
+      gap-5
+      md:gap-8
+      lg:gap-5
+    "
   >
-    <div
-      class="w-2/5 my-2 md:w-1/4 lg:w-2/12"
-      v-for="movie in movies"
-      :key="movie.imdbID"
-    >
+    <div v-for="movie in movies" :key="movie.imdbID">
       <MovieCard :movie="movie" />
     </div>
   </div>
