@@ -12,10 +12,13 @@ import HeartIcon from "@/assets/icons/HeartIcon.vue";
       </h1>
     </RouterLink>
 
-    <RouterLink to="/fav" class="flex text-red-600 items-center cursor-pointer">
+    <RouterLink
+      to="/favourites"
+      class="flex text-red-600 items-center cursor-pointer"
+    >
       <HeartIcon />
 
-      <span class="text-lg tracking-wide md:text-xl">Favorite Movies</span>
+      <span class="text-lg tracking-wide md:text-xl">Favourite Movies</span>
     </RouterLink>
   </div>
   <p
