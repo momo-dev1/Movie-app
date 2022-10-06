@@ -42,5 +42,19 @@ export const useMoviesStore = defineStore("movies", {
                 console.log(err.message);
             }
         },
+        async nextPage(page) {
+            const keyword = localStorage.getItem("keyword") ? localStorage.getItem("keyword") : "One Piece";
+            this.isLoading = true;
+            this.loadingMessage = "Please wait";
+            try {
+              const { data } = await axios.get(`${API_URL}?apikey=${API_KEY}&s=${keyword}&page=${page}`);
+      
+              if (data.Response == "False") {
+                throw new Error(data.Error);
+              }
+              this.isLoading = false;
+              data.Search.forEach(movie => this.movies.push(movie));
+            } catch (error) {}
+          },
     },
 });
