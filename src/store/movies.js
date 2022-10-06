@@ -47,14 +47,14 @@ export const useMoviesStore = defineStore("movies", {
             this.isLoading = true;
             this.loadingMessage = "Please wait";
             try {
-              const { data } = await axios.get(`${API_URL}?apikey=${API_KEY}&s=${keyword}&page=${page}`);
-      
-              if (data.Response == "False") {
-                throw new Error(data.Error);
-              }
-              this.isLoading = false;
-              data.Search.forEach(movie => this.movies.push(movie));
-            } catch (error) {}
-          },
+                const { data } = await axios.get(`${ import.meta.env.VITE_API_URL }?apikey=${ import.meta.env.VITE_API_KEY }&s=${ keyword }&page=${ page }`);
+
+                if (data.Response == "False") {
+                    throw new Error(data.Error);
+                }
+                this.isLoading = false;
+                data.Search.forEach(movie => this.movies.push(movie));
+            } catch (error) { }
+        },
     },
 });
