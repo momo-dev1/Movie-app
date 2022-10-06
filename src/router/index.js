@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import ViewHome from "@/views/ViewHome.vue"
-import ViewMovieDetails from "@/views/ViewMovieDetails.vue"
 import ViewNotFound from "@/views/ViewNotFound.vue"
+import ViewFavorite from "@/views/ViewFavorite.vue"
+import ViewMovieDetails from "@/views/ViewMovieDetails.vue"
 
 const routes = [
   {
@@ -21,6 +22,15 @@ const routes = [
     meta: {
       enterClass: "animate__animated animate__fadeInRight",
       leaveClass: "animate__animated animate__fadeOutRight",
+    },
+  },
+  {
+    path: "/favourites",
+    name: "Favourites",
+    component: ViewFavorite,
+    meta: {
+      enterClass: "animate__animated animate__fadeInLeft",
+      leaveClass: "animate__animated animate__fadeOutLeft",
     },
   },
   {
