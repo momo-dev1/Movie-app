@@ -8,7 +8,7 @@ import HeartIcon from "@/assets/icons/HeartIcon.vue";
 import LocationIcon from "@/assets/icons/LocationIcon.vue";
 import StarIcon from "@/assets/icons/StarIcon.vue";
 import { useMoviesStore } from "@/store/movies";
-import { useFavoritStore } from "@/store/favorite";
+import { useFavoritStore } from "@/store/favourite";
 const favStore = useFavoritStore();
 const moviesStore = useMoviesStore();
 

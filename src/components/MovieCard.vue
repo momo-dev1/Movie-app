@@ -2,7 +2,7 @@
 import { ref } from "@vue/reactivity";
 import CalendarIcon from "@/assets/icons/CalendarIcon.vue";
 import HeartIcon from "@/assets/icons/HeartIcon.vue";
-import { useFavoritStore } from "@/store/favorite";
+import { useFavoritStore } from "@/store/favourite";
 const store = useFavoritStore();
 
 const props = defineProps({
