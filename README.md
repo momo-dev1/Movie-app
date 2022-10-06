@@ -20,6 +20,7 @@ A full responsive movie site using OMDB Api. The main target was to build someth
 
 - Search a movie
 - Add to favourite
+- Scroll to fetch more movies
 - Expressive, responsive and clear UI/UX
 
 ### Run Locally
