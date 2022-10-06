@@ -49,7 +49,6 @@ const filterRecent = (e) => {
 
 const changeKeyword = (e) => {
   keyword.value = e.target.innerHTML;
-  console.log(keyword.value);
   store.getAllMovies(keyword.value);
   localStorage.setItem("keyword", e.target.innerHTML);
 };
