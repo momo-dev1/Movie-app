@@ -1,4 +1,3 @@
-### Short Description
 # Movie-app
 
 ## Short Description
